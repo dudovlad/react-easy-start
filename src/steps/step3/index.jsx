@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 
 export class Step3 extends Component {
     log = [];
+    counter = 0;
+    interval = 0;
     
     constructor(){
         super();
         this.trace("ctor");
+
+        this.counter = 22;
     }
 
     trace(str){
@@ -19,10 +23,14 @@ export class Step3 extends Component {
 
     componentDidMount(){
         this.trace("component did mount");
+        this.timer = setInterval(() => {
+            this.trace(`tic ${this.counter++}`);
+        }, 5000);
     }
 
     componentWillUnmount(){
         this.trace("component will unmount");
+        clearInterval(this.timer);
     }
 
     renderLog(){
@@ -34,7 +42,10 @@ export class Step3 extends Component {
     render() {
         return (
         <div>
-            <h1>Step 3 - Component's lifecycle hooks</h1>
+            <h1>Step 3 - Basic Component's lifecycle</h1>            
+            <div>
+                Counter: {this.counter}
+            </div>
             <div>
                 {this.renderLog()}
             </div>

@@ -14,7 +14,10 @@ export const Home = () => (
                 <Link to='/step2'>Step 2 - JSX in depth </Link>
             </li>
             <li>
-                <Link to='/step3'>Step 3 - Component's Lifecycle </Link>
+                <Link to='/step3'>Step 3 - Basic component's lifecycle </Link>
+            </li>
+            <li>
+                <Link to='/step4'>Step 4 - Props and State </Link>
             </li>
         </ul>
     </div>

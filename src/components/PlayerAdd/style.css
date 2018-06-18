@@ -1,0 +1,8 @@
+.playerAdd form > div {
+    margin-bottom: 10px;
+}
+
+.playerAdd label {
+  width: 75px;
+  text-align: end;
+}

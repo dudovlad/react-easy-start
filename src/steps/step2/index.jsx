@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { players } from '../data/players';
+import { players } from '../../data/players';
 import './style.css';
 
 export class Step2 extends Component {
@@ -43,7 +43,7 @@ export class Step2 extends Component {
     renderTable(){
         let orderedPlayers = players.sort((a, b) => (a.age - b.age));
         return (
-            <table style={{marginTop: "20px"}}>
+            <table style={{marginTop: "100px"}}>
                 {this.renderTableHeader()}
                 <tbody>
                     {orderedPlayers.map(this.renderRow)}
