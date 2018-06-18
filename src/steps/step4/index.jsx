@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {players} from '../../data/players';
 import {PlayerCardA, PlayerCardB} from '../../components/PlayerCard';
 import {PlayerAdd} from '../../components/PlayerAdd';
-import './style.css';
 
 export class Step4 extends Component {
 
