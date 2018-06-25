@@ -16,3 +16,6 @@ export class Step1 extends Component {
     );
   }
 }
+
+// React component {reusable, independent}
+// A bit about render

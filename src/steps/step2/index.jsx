@@ -8,16 +8,6 @@ export class Step2 extends Component {
         return <span className='highlight'>€{player.value}M</span>;
     }
 
-    renderRow = (p, id) => (
-        <tr key={id}>
-            <td>{id+1}</td>
-            <td>{p.name}</td>
-            <td>{p.club}</td>
-            <td>{p.age}</td>
-            <td>{this.renderValue(p)}</td>
-        </tr>
-    );
-
     renderTableHeader = () => (
         <thead>
             <tr>
@@ -40,13 +30,28 @@ export class Step2 extends Component {
         </thead>
     );
 
+    renderRow = (p, id) => (
+        <tr key={id}>
+            <td>{id+1}</td>
+            <td>{p.name}</td>
+            <td>{p.club}</td>
+            <td>{p.age}</td>
+            <td>{this.renderValue(p)}</td>
+        </tr>
+    );
+
+    orderPlayersByAgeAsc = (a, b) =>  (a.age - b.age);
+
     renderTable(){
-        let orderedPlayers = players.sort((a, b) => (a.age - b.age));
         return (
             <table style={{marginTop: "100px"}}>
                 {this.renderTableHeader()}
                 <tbody>
-                    {orderedPlayers.map(this.renderRow)}
+                    {
+                        players
+                            .sort(this.orderPlayersByAgeAsc)
+                            .map(this.renderRow)
+                    }
                 </tbody>
             </table>
         );

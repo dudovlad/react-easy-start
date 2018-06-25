@@ -9,3 +9,44 @@ h1, p {
 .mr-1 {
   margin-right: 10px;
 }
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
+}
+
+main {
+  height: 90%;
+}
+
+footer {
+  flex: auto;
+  background-color: lightblue;
+}
+
+.box {
+  display: flex;
+}
+
+.box-center {
+  justify-content: center;
+}
+
+ul.menu > li > a {
+    font-size: 24px; 
+}
+
+ul.menu > li {
+  margin-bottom: 10px;
+}
+
+footer > a {
+  font-size: 36px;
+}
+
+.border {
+  border: 2px solid red;
+  padding: 1px;
+}

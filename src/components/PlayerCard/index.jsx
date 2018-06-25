@@ -11,14 +11,17 @@ export const PlayerCardA = (props) =>
 
 
 export class PlayerCardB extends Component {
+    constructor(){
+        super();
+    }
+
     render(){
-        let {p} = this.props;
         return (
         <div className="playerCard">
             <h3>{this.props.player.name}</h3>
-            <p>from: {p.club}</p>
-            <p>age: {p.age} </p>
-            <p>value: {p.value} </p>
+            <p>from: {this.props.player.club}</p>
+            <p>age: {this.props.player.age} </p>
+            <p>value: €{this.props.player.value}M </p>
         </div>);
     }
 }
