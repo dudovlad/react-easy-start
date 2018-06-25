@@ -60,7 +60,7 @@ export class Step2 extends Component {
     render() {
         return (
         <div>
-            <h1>Step 2 - JSX in depth</h1>
+            <h1> Step 2 - JSX in depth </h1>
             <h2> Top 5 players sorted by age </h2>
             <div>
                 {this.renderTable()}

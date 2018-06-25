@@ -9,3 +9,5 @@ export class Step4 extends Component {
         );
     }
 }
+
+// ALSO discuss state with props

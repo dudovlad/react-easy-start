@@ -34,9 +34,11 @@ export class Step3 extends Component {
     }
 
     renderLog(){
-        return <ul>{
+        return <ul>
+        {
             this.log.map((x, i) => <li key={i}>{x}</li>)
-        }</ul>;
+        }
+        </ul>;
     }
 
     render() {

@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 export const Menu = () => (
     <div>
         <h1> React quick start </h1> 
+        <h2> 
+            <a href="https://github.com/Arukim/react-easy-start">https://github.com/Arukim/react-easy-start</a> 
+        </h2>
         <ul className="menu">
             <li>
                 <Link to='/step0'>Step 0 - Greet the World</Link>
