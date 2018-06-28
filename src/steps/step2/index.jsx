@@ -3,36 +3,48 @@ import { players } from '../../data/players';
 import './style.css';
 
 export class Step2 extends Component {
-    
+    constructor() {
+        super();
+        this.state = { sortByKey: 'id' };
+    }
+
     renderValue(player) {
         return <span className='highlight'>€{player.value}M</span>;
+    }
+
+    getTableHeaderClassName(columnName){
+        return this.state.sortByKey==columnName ? 'filterColumn' : '';
     }
 
     renderTableHeader = () => (
         <thead>
             <tr>
-                <th>
+                <th onClick={e => this.onSort('id') } className = {this.getTableHeaderClassName('id')}>
                     Id
                 </th>
-                <th>
+                <th onClick={e => this.onSort('name')} className = {this.getTableHeaderClassName('name')}>
                     Name
                 </th>
-                <th>
+                <th onClick={e => this.onSort('club')} className = {this.getTableHeaderClassName('club')}>
                     Club
                 </th>
-                <th>
+                <th onClick={e => this.onSort('age')} className = {this.getTableHeaderClassName('age')}>
                     Age
                 </th>
-                <th>
+                <th onClick={e => this.onSort('value')} className = {this.getTableHeaderClassName('value')}>
                     Value
                 </th>
             </tr>
         </thead>
     );
 
+    onSort(sortByKey){
+        this.setState({sortByKey});
+    }
+
     renderRow = (p, id) => (
-        <tr key={id}>
-            <td>{id+1}</td>
+        <tr key={p.id}>
+            <td>{p.id}</td>
             <td>{p.name}</td>
             <td>{p.club}</td>
             <td>{p.age}</td>
@@ -40,7 +52,7 @@ export class Step2 extends Component {
         </tr>
     );
 
-    orderPlayersByAgeAsc = (a, b) =>  (a.age - b.age);
+    sortPlayers = (a, b) => a[this.state.sortByKey].toString().localeCompare(b[this.state.sortByKey]);
 
     renderTable(){
         return (
@@ -49,7 +61,7 @@ export class Step2 extends Component {
                 <tbody>
                     {
                         players
-                            .sort(this.orderPlayersByAgeAsc)
+                            .sort(this.sortPlayers)
                             .map(this.renderRow)
                     }
                 </tbody>
