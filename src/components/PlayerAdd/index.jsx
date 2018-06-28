@@ -4,19 +4,23 @@ import './style.css';
 export class PlayerAdd extends Component {
     constructor(){
         super();
-        this.state = {
-            name: "",
-            club: "",
-            age: 18,
-            value: 0
-        };
+        this.state = this.default;
     }
+
+    default = {
+        name: "",
+        club: "",
+        age: 20,
+        value: 10
+    };
 
     onNameChanged = (e) => this.setState({name: e.target.value});
     onClubChanged = (e) => this.setState({club: e.target.value});
     onAgeChanged = (e) => this.setState({age: e.target.value});
     onValueChanged = (e) => this.setState({value: e.target.value});
 
+    onDefaultPlayerFields = () => this.setState(this.default);
+    
     onAdd = () => {
         this.props.onAdd(this.state);
     }
@@ -59,6 +63,10 @@ export class PlayerAdd extends Component {
                     onClick={this.onAdd}
                     type="button"
                 > Add Player </button>
+                <button 
+                    onClick={this.onDefaultPlayerFields}
+                    type="button"
+                > Default </button>
             </form>
         </div>);
     }
